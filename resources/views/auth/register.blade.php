@@ -1,5 +1,7 @@
 @extends('components.layouts.auth-layout')
 
+@section('title', 'Register')
+
 @section('main')
 
     <section id="login" class="glass-card w-full max-w-md rounded-xl overflow-hidden">

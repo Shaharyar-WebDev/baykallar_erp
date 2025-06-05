@@ -1,5 +1,7 @@
 @extends('components.layouts.auth-layout')
 
+@section('title', 'Reset password')
+
 @section('main')
 
     <section id="reset-password" class="glass-card w-full max-w-md rounded-xl overflow-hidden">

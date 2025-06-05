@@ -1,5 +1,7 @@
 @extends('components.layouts.auth-layout')
 
+@section('title', 'Verify email')
+
 @section('main')
 
     <section id="verify-email" class="glass-card w-full max-w-md rounded-xl overflow-hidden">
