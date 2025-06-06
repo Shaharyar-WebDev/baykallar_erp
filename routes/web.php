@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\System\LocaleController;
-use App\Livewire\Dashboard\Dashboard;
-use App\Livewire\Pages\Home;
-use App\Livewire\Pages\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Pages\HomeController;
+use App\Http\Controllers\Pages\ProfileController;
+use App\Http\Controllers\System\LocaleController;
+use App\Http\Controllers\Pages\Settings\SiteSettingController;
 
 
 
@@ -15,15 +15,19 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::middleware(['auth', 'verified', 'locale'])->group(function () {
 
-    Route::redirect('/home', 'dashboard/', 301 );
+    Route::redirect('/home', '/dashboard/home', 301 );
     
     Route::prefix('dashboard')->group(function () {
 
-        Route::get('/', Home::class)->name('home');
-
-        Route::get('/profile', Profile::class)->name('profile');
+        Route::resource('/home', HomeController::class);
+        
+        Route::resource('/profile', ProfileController::class);
 
     });
+
+    Route::get('/settings/site-settings', [SiteSettingController::class, 'index'])->name('site.settings');
+    Route::put('/settings/site-settings', [SiteSettingController::class, 'update'])->name('site.settings.update');
+
 });
 
 Route::get('/', function () {

@@ -92,6 +92,7 @@ return [
     'show'            => 'Göstermek',
     'show_all'        => 'Hepsini Göster ↓',
     'sign_in'         => 'Kayıt olmak',
+    'save_changes' => 'Değişiklikleri Kaydet',
     'solve'           => 'Çözmek',
     'start'           => 'Başlangıç',
     'stop'            => 'Durmak',

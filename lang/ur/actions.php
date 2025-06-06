@@ -23,6 +23,7 @@ return [
     'collapse'        => 'گرنے',
     'collapse_all'    => 'سبھی کو سکیڑیں۔',
     'comment'         => 'تبصرہ',
+    'save_changes' => 'تبدیلیاں محفوظ کریں',
     'confirm'         => 'تصدیق کریں۔',
     'connect'         => 'جڑیں۔',
     'create'          => 'بنانا',

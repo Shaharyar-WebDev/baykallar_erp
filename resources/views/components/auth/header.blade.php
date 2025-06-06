@@ -4,12 +4,13 @@
         {{ $slot }}
     @else
         <img 
-            src="{{ asset('storage/logo/logo.webp') }}" 
-            alt="{{ config('app.name') }} Logo"
-            class="w-44 mb-4" 
+            src="{{ asset('storage/'.$settings['site.logo']) }}" 
+            alt="{{ $settings['site.name'] }} Logo"
+            style="width: {{ $settings['auth.logo_width'] ? $settings['auth.logo_width'].'px' : '120px'}}; height: {{ $settings['auth.logo_height'] ? $settings['auth.logo_height'].'px' : ''}}"
+            class="mb-4" 
             loading="lazy"
         >
-        <h1 class="text-2xl font-bold text-slate-800">{{ config('app.name') }}</h1>
+        <h1 class="text-2xl font-bold text-slate-800">{{ $settings['site.name'] }}</h1>
         <p class="text-slate-500 mt-1">{{__('form-components.welcome')}}</p>
     @endif
 </div>

@@ -19,9 +19,17 @@
         ];
 @endphp
 
-<div class="mt-2 flex justify-center gap-4 items-center {!!$colors[$type]!!}" role="alert" tabindex="-1" aria-labelledby="hs-soft-color-info-label">
+<div class="alert-box mt-2 flex justify-center gap-4 items-center {!!$colors[$type]!!}" role="alert" tabindex="-1" aria-labelledby="hs-soft-color-info-label">
   {!!$icons[$type]!!}
   <span>
     {{$message}}
 </span>
 </div>
+<script>
+        const alertBox = document.querySelector('.alert-box');
+        if (alertBox) {
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000); // Remove after 5 seconds
+        }
+</script>

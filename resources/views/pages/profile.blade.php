@@ -1,19 +1,19 @@
-@extends('livewire.layouts.dashboard')
+@extends('layouts.dashboard')
 
-@section('title', 'Home')
+@section('title', 'Profile')
 
 @push('breadcrumbs')
     <x-dashboard.breadcrumbs :breadcrumbs="[
-            'Dashboard' => route('home'),
-            'Profile' => route('profile')
+            'Dashboard' => route('home.index'),
+            'Profile' => route('profile.index'),
         ]" />
 @endpush
 
 @section('content')
     <!-- Card Section -->
-    <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-4xl py-10 sm:px-6 lg:px-8 mx-auto">
         <!-- Card -->
-        <div class="bg-white rounded-xl shadow-xs p-4 sm:p-7 dark:bg-neutral-800">
+        <div class="bg-white rounded-xl shadow-xs p-8 sm:p-7 dark:bg-neutral-800">
             <div class="mb-8">
                 <h2 class="text-xl font-bold text-gray-800 dark:text-neutral-200">
                     {{ __('pages/profile.title') }}
@@ -109,13 +109,13 @@
 
                     <div class="sm:col-span-9">
                         <div class="space-y-2">
-                            <input id="af-account-password" type="password" name="current_password" disabled hidden
+                            <input id="af-account-password" type="password" name="current_password" disabled
                                 class="py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                 placeholder="{{ __('pages/profile.current_password') }}">
-                            <input type="password" name="password" disabled hidden
+                            <input type="password" name="password" disabled
                                 class="py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                 placeholder="{{ __('pages/profile.new_password') }}">
-                            <input type="password" name="password_confirmation" disabled hidden
+                            <input type="password" name="password_confirmation" disabled
                                 class="py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                 placeholder="{{ __('pages/profile.confirm_password') }}">
                         </div>
@@ -152,89 +152,24 @@
 @endsection
 
 @push('scripts')
+
     <script>
 
+        // Profile Form
         const profileForm = document.querySelector('#profile-form');
         const profileEditBtn = document.querySelector('#profile-edit-btn');
         const profileFormBtn = document.querySelector('#profile-form-btn');
         const profileFormInputs = profileForm.querySelectorAll('input');
 
-        let profileIsEditing = false;
-
-        profileEditBtn.addEventListener('click', (e) => {
-
-            if (!profileIsEditing) {
-
-                profileFormInputs.forEach(input => {
-
-                    input.disabled = false;
-
-                });
-
-                profileEditBtn.textContent = '{{__('pages/profile.cancel')}}';
-                profileFormBtn.hidden = false;
-                profileFormBtn.disabled = false;
-                profileIsEditing = true;
-            } else {
-
-                profileFormInputs.forEach(input => {
-
-                    input.disabled = true;
-
-                });
-
-                profileEditBtn.textContent = '{{__('pages/profile.edit')}}';
-                profileFormBtn.hidden = true;
-                profileFormBtn.disabled = true;
-                profileIsEditing = false;
-
-
-            }
-        });
-
+        // Password Btns
         const passwordForm = document.querySelector('#password-form');
         const passwordEditBtn = document.querySelector('#password-edit-btn');
         const passwordFormBtn = document.querySelector('#password-form-btn');
         const passwordFormInputs = passwordForm.querySelectorAll('input');
-        let passwordIsEditing = false;
 
-        passwordEditBtn.addEventListener('click', (e) => {
-
-            if (!passwordIsEditing) {
-
-                passwordFormInputs.forEach(input => {
-
-                    input.disabled = false;
-
-                });
-
-                passwordEditBtn.textContent = '{{__('pages/profile.cancel')}}';
-                passwordFormBtn.hidden = false;
-                passwordFormBtn.disabled = false;
-                passwordIsEditing = true;
-            } else {
-
-                passwordFormInputs.forEach(input => {
-
-                    input.disabled = true;
-
-                });
-
-                passwordEditBtn.textContent = '{{__('pages/profile.edit')}}';
-                passwordFormBtn.hidden = true;
-                passwordFormBtn.disabled = true;
-                passwordIsEditing = false;
-
-
-            }
-
-
-
-
-
-
-        });
-
+        editToggler(profileForm, profileEditBtn, profileFormBtn);
+        editToggler(passwordForm, passwordEditBtn, passwordFormBtn);
 
     </script>
 @endpush
+

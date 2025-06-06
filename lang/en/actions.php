@@ -85,6 +85,7 @@ return [
     'save_and_close'  => 'Save & Close',
     'save_and_return' => 'Save & Return',
     'search'          => 'Search',
+    'save_changes' => 'Save changes',
     'select'          => 'Select',
     'select_all'      => 'Select All',
     'send'            => 'Send',

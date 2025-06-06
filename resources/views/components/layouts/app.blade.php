@@ -3,10 +3,8 @@
    <x-partials.head></x-partials.head>
    <body class="bg-neutral-100 dark:bg-neutral-900">
      
-     <x-dashboard.components.alert/>
-
         {{ $slot }}
     </body>
+    <x-partials.scripts></x-partials.scripts>
     @stack('scripts')
-     <x-partials.scripts></x-partials.scripts>
 </html>

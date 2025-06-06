@@ -29,4 +29,8 @@ class Flash
     {
         session()->flash('response', ['status' => 'error', 'message' => $message]);
     }
+    public static function clear()
+    {
+        session()->forget('response');
+    }
 }

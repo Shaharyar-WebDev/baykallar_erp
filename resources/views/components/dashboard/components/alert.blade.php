@@ -1,6 +1,6 @@
 @if(session('response'))
     @php
-    session()->forget('response');
+
         $status = session('response')['status'];
         $message = session('response')['message'];
 
@@ -13,7 +13,7 @@
     @endphp
     <div class="alert alert-{{$status}} p-4 rounded-lg" style="
             min-width: 340px;
-            position: absolute;
+            position: fixed;
             right: 10px;
             z-index: 99;
             bottom: 10px;

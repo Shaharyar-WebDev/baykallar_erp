@@ -1,4 +1,4 @@
-<x-dashboard.components.tooltip tooltip="Light mode">
+<x-dashboard.components.tooltip tooltip="Light mode" placement="bottom">
     <button type="button"
         class="hs-dark-mode-active:hidden hs-tooltip-toggle block hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-800"
         data-hs-theme-click-value="dark">
@@ -11,7 +11,7 @@
     </button>
 </x-dashboard.components.tooltip>
 
-<x-dashboard.components.tooltip tooltip="Dark mode">
+<x-dashboard.components.tooltip tooltip="Dark mode" placement="bottom">
 <button type="button"
     class="hs-dark-mode-active:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-800"
     data-hs-theme-click-value="light">
