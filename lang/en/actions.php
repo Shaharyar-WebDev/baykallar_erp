@@ -84,8 +84,8 @@ return [
     'save'            => 'Save',
     'save_and_close'  => 'Save & Close',
     'save_and_return' => 'Save & Return',
+    'save_changes'    => 'Save changes',
     'search'          => 'Search',
-    'save_changes' => 'Save changes',
     'select'          => 'Select',
     'select_all'      => 'Select All',
     'send'            => 'Send',
@@ -117,4 +117,5 @@ return [
     'user'            => 'User',
     'view'            => 'View',
     'yes'             => 'Yes',
+    'back'            => 'Back',
 ];

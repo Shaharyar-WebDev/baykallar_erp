@@ -39,10 +39,10 @@
             </button>
         </div>
     </div>
-    <script>
+    {{-- <script>
         setTimeout(() => {
             let alert = document.querySelector('.alert');
             alert.remove();
         }, 3000);
-    </script>
+    </script> --}}
 @endif

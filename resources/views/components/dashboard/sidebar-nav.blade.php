@@ -1,6 +1,7 @@
 @php
     $settingsOpen = request()->is('settings/*');
     $dashboardOpen = request()->is('dashboard/home');
+    $permissionsOpen = request()->routeIs('permissions.*', 'roles.*');
 @endphp
 <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap" data-hs-accordion-always-open wire:ignore>
     <ul class="flex flex-col space-y-1">
@@ -237,6 +238,52 @@
                         <a class="{{request()->routeIs('site.settings') ? 'bg-gray-100 dark:bg-neutral-700' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200"
                             href="{{route('site.settings')}}">
                             Site settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="hs-accordion {{ $permissionsOpen ? 'active' : ''}}" id="permissions-accordion">
+            <button type="button"
+                class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 {{ $permissionsOpen ? 'bg-gray-100 dark:bg-neutral-700' : ''}} dark:text-neutral-200"
+                aria-expanded="true" aria-controls="account-accordion-child">
+                <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mt-0.5 size-4" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-user-lock-icon lucide-user-lock">
+                    <circle cx="10" cy="7" r="4" />
+                    <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
+                    <path d="M15 15.5V14a2 2 0 0 1 4 0v1.5" />
+                    <rect width="8" height="5" x="13" y="16" rx=".899" />
+                </svg>
+                Permissions
+                <svg class="hs-accordion-active:block ms-auto hidden size-4" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m18 15-6-6-6 6" />
+                </svg>
+
+                <svg class="hs-accordion-active:hidden ms-auto block size-4" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+
+            <div id="settings-accordion-child"
+                class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 {{ $permissionsOpen ? 'visible' : 'hidden' }}"
+                role="region" aria-labelledby="permissions-accordion">
+                <ul class="ps-8 pt-1 space-y-1">
+                    <li>
+                        <a class="{{request()->routeIs('permissions.index') ? 'bg-gray-100 dark:bg-neutral-700' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200"
+                            href="{{route('permissions.index')}}">
+                            All Permissions
+                        </a>
+                    </li>
+                     <li>
+                        <a class="{{request()->routeIs('roles.index') ? 'bg-gray-100 dark:bg-neutral-700' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200"
+                            href="{{route('roles.index')}}">
+                            Roles
                         </a>
                     </li>
                 </ul>

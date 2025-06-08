@@ -1,5 +1,4 @@
 <!-- Preline UI Script -->
-<script src="../../assets/vendor/preline/dist/preline.js"></script>
 <script src="{{asset('js/NProgress.js')}}"></script>
 <x-partials.scripts.submit-script/>
 <script>
@@ -58,5 +57,11 @@
             
         }
 
+ const openDeleteModal = (formId, route) => {
+                let deleteModalForm = document.getElementById(`${formId}-form`);
+                deleteModalForm.setAttribute('action', route);
+            }
+            
 </script>
+<!-- Required plugins -->
 @livewireScripts

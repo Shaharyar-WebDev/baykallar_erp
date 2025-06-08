@@ -8,20 +8,24 @@ use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\Pages\ProfileController;
 use App\Http\Controllers\System\LocaleController;
 use App\Http\Controllers\Pages\Settings\SiteSettingController;
-
-
-
-
+use App\Http\Controllers\Pages\Permissions\PermissionController;
+use App\Http\Controllers\Pages\Role\RoleController;
 
 Route::middleware(['auth', 'verified', 'locale'])->group(function () {
 
     Route::redirect('/home', '/dashboard/home', 301 );
+    Route::redirect('/dashboard', '/dashboard/home', 301 );
     
     Route::prefix('dashboard')->group(function () {
 
         Route::resource('/home', HomeController::class);
         
         Route::resource('/profile', ProfileController::class);
+
+        Route::resource('/permissions', PermissionController::class);
+
+        route::resource('/roles', RoleController::class);
+
 
     });
 

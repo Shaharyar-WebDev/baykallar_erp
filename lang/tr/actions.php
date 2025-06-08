@@ -84,6 +84,7 @@ return [
     'save'            => 'Kaydetmek',
     'save_and_close'  => 'Kaydet kapat',
     'save_and_return' => 'Kaydet ve Geri Dön',
+    'save_changes'    => 'Değişiklikleri Kaydet',
     'search'          => 'Aramak',
     'select'          => 'Seçme',
     'select_all'      => 'Hepsini seç',
@@ -92,7 +93,6 @@ return [
     'show'            => 'Göstermek',
     'show_all'        => 'Hepsini Göster ↓',
     'sign_in'         => 'Kayıt olmak',
-    'save_changes' => 'Değişiklikleri Kaydet',
     'solve'           => 'Çözmek',
     'start'           => 'Başlangıç',
     'stop'            => 'Durmak',
@@ -117,4 +117,5 @@ return [
     'user'            => 'Kullanıcı',
     'view'            => 'Görüş',
     'yes'             => 'Evet',
+    'back'            => 'Geri',
 ];
